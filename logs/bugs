@@ -1,0 +1,1 @@
+20260928: LNK2019 on clamp/lerp, cause: constexpr functions defined in .cpp, fix: removed constexpr.
