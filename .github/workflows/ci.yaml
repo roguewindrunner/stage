@@ -29,3 +29,11 @@ jobs:
         run: cmake --build --preset linux-debug
       - name: Test
         run: ctest --preset linux-debug --output-on-failure
+  format:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check formatting
+        run: |
+          clang-format --version
+          find src tests -name '*.cpp' -o -name '*.hpp' | xargs clang-format --dry-run --Werror
