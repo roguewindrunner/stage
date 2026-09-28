@@ -4,15 +4,25 @@
         {
             "name": "windows-msvc",
             "displayName": "Windows MSVC (x64)",
-            "generator": "Visual Studio 18 2026",
             "architecture": "x64",
-            "binaryDir": "${sourceDir}/build"
+            "binaryDir": "${sourceDir}/build",
+            "condition": { "type": "equals", "lhs": "${hostSystemName}", "rhs": "Windows" }
+        },
+        {
+            "name": "linux-gcc",
+            "displayName": "Linux GCC",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build",
+            "cacheVariables": { "CMAKE_BUILD_TYPE": "Debug" },
+            "condition": { "type": "equals", "lhs": "${hostSystemName}", "rhs": "Linux" }
         }
     ],
     "buildPresets": [
-        { "name": "debug", "configurePreset": "windows-msvc", "configuration": "Debug" }
+        { "name": "debug", "configurePreset": "windows-msvc", "configuration": "Debug" },
+        { "name": "linux-debug", "configurePreset": "linux-gcc" }
     ],
     "testPresets": [
-        { "name": "debug", "configurePreset": "windows-msvc", "configuration": "Debug" }
+        { "name": "debug", "configurePreset": "windows-msvc", "configuration": "Debug" },
+        { "name": "linux-debug", "configurePreset": "linux-gcc" }
     ]
 }
