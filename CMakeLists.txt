@@ -22,7 +22,7 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
 enable_testing()
-add_executable(stage_tests tests/math_utils_test.cpp tests/vec3_test.cpp)
+add_executable(stage_tests tests/math_utils_test.cpp tests/vec3_test.cpp tests/mat4_test.cpp)
 target_link_libraries(stage_tests PRIVATE stage_core GTest::gtest_main)
 
 include(GoogleTest)
