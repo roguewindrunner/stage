@@ -1,5 +1,5 @@
-#include <gtest/gtest.h>
 #include "core/vec3.hpp"
+#include <gtest/gtest.h>
 
 using stage::Vec3;
 
